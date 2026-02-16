@@ -13,7 +13,7 @@ export default function Home() {
             Powered by Solana
           </h1>
           <p className="text-muted-foreground mb-8 text-lg">
-            CertChain enables organizations to issue tamper-proof, on-chain
+            Certify enables organizations to issue tamper-proof, on-chain
             certificates that are instantly verifiable and globally accessible.
           </p>
           <div className="flex gap-4">
@@ -37,7 +37,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4 text-sm">
-                Issuer: CertChain Organization
+                Issuer: Certify Organization
               </p>
               <p className="text-muted-foreground mb-4 text-sm">
                 Recipient: Jane Doe
@@ -145,7 +145,7 @@ export default function Home() {
       </section>
 
       <footer className="border-border text-muted-foreground border-t py-8 text-center text-sm">
-        <p>CertChain - Blockchain Certificates on Solana</p>
+        <p>Certify - Blockchain Certificates on Solana</p>
       </footer>
     </main>
   );
