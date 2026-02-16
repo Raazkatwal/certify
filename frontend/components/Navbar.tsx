@@ -1,14 +1,22 @@
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b px-8 py-4 flex justify-between">
-      <Link href="/" className="font-semibold">
-        Certify
-      </Link>
-      <div className="flex gap-4">
-        <Link href="/issue">Issue</Link>
-        <Link href="/verify">Verify</Link>
+    <nav className="bg-background/80 fixed top-0 z-50 w-full border-b backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <Link href="/" className="text-xl font-semibold uppercase tracking-widest">
+          CertChain
+        </Link>
+
+        <div className="flex items-center gap-4">
+          <Link href="/issue">
+            <Button variant="outline">Issue</Button>
+          </Link>
+          <Link href="/verify">
+            <Button>Verify</Button>
+          </Link>
+        </div>
       </div>
     </nav>
   );
