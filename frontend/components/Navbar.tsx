@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export default function Navbar() {
   return (
@@ -11,12 +13,13 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-4">
+					<WalletMultiButton />
 					<ThemeToggle />
           <Link href="/issue">
-            <Button variant="outline">Issue</Button>
+            <Button variant="outline" className="cursor-pointer">Issue</Button>
           </Link>
           <Link href="/verify">
-            <Button>Verify</Button>
+            <Button className="cursor-pointer">Verify</Button>
           </Link>
         </div>
       </div>
