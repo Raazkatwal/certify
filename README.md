@@ -60,35 +60,6 @@ We needed immutability, public verification, and ownership — all provided by b
 - [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
 - [Anchor](https://project-serum.github.io/anchor/getting-started/installation.html)
 
----
-
-## Project Structure
-
-.
-├── anchor                     # Anchor Solana program
-│   ├── programs
-│   │   └── certify
-│   ├── tests
-│   ├── migrations
-│   ├── Anchor.toml
-│   └── package.json
-│
-└── frontend                   # Next.js frontend
-    ├── app
-    │   ├── issue
-    │   ├── certificates
-    │   ├── verify
-    │   ├── layout.tsx
-    │   └── page.tsx
-    ├── components
-    │   ├── WalletButton.tsx
-    │   └── ...
-    ├── lib
-    │   ├── anchor
-    │   └── ...
-    └── package.json
-
-
 
 ## Tech Stack
 
