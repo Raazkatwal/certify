@@ -21,7 +21,7 @@ type ParsedMetadata = {
   courseName: string;
   description?: string;
   issuedAt?: string;
-  verify;
+  verify?: boolean;
 };
 
 export default function VerifyPage() {
@@ -51,7 +51,7 @@ export default function VerifyPage() {
       }
 
       if (isPublicKey && pubkey) {
-        const program = getProgram(null, connection);
+        const program = getProgram(null, connection) as any;
         const account = await program.account.certificate.fetch(pubkey);
 
         let parsed;
@@ -67,7 +67,7 @@ export default function VerifyPage() {
           };
         }
 
-        const tx = localStorage.getItem(pubkey.toBase58());
+        const tx = localStorage.getItem(pubkey.toBase58()) ?? undefined;
 
         setCertificate({
           metadata: parsed,

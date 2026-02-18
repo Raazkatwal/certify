@@ -26,6 +26,8 @@ type ParsedMetadata = {
 
 type CertificateData = {
   issuer: string;
+  publicKey: string;
+  tx?: string;
   metadata: ParsedMetadata;
 };
 
@@ -47,7 +49,7 @@ export default function CertificatesPage() {
         setLoading(true);
         const program = getProgram(wallet, connection);
 
-        const accounts = await program.account.certificate.all([
+        const accounts = await (program.account as any).certificate.all([
           {
             memcmp: {
               offset: 40,
@@ -56,7 +58,7 @@ export default function CertificatesPage() {
           },
         ]);
 
-        const formatted = accounts.map((acc) => {
+        const formatted = accounts.map((acc: any) => {
           const tx = localStorage.getItem(acc.publicKey.toBase58());
           let parsed: ParsedMetadata;
 
