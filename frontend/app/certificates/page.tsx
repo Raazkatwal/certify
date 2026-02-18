@@ -74,6 +74,7 @@ export default function CertificatesPage() {
 
           return {
             issuer: acc.account.issuer.toBase58(),
+            publicKey: acc.publicKey.toBase58(),
             tx,
             metadata: parsed,
           };
@@ -160,15 +161,22 @@ export default function CertificatesPage() {
                   </p>
                 )}
 
+                <div className="mt-4 flex items-center gap-2 text-xs">
+                  <p>
+                    Certificate Account: <code>{cert.publicKey}</code>
+                  </p>
+                  <Button
+                    size="xs"
+                    variant="outline"
+                    onClick={() =>
+                      navigator.clipboard.writeText(cert.publicKey)
+                    }
+                  >
+                    Copy
+                  </Button>
+                </div>
                 {cert.tx && (
                   <div className="mt-4 flex gap-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => navigator.clipboard.writeText(cert.tx!)}
-                    >
-                      Copy TX
-                    </Button>
                     <Button
                       size="sm"
                       variant="outline"
