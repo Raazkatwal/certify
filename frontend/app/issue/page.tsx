@@ -64,8 +64,8 @@ export default function IssuePage() {
         issuedAt: new Date().toISOString(),
       });
 
-      await program.methods
-        .issueCertificate(wallet.publicKey, metadata)
+      const tx = await program.methods
+        .issueCertificate(new PublicKey(recipient), metadata)
         .accounts({
           certificate: certificateKeypair.publicKey,
           issuer: wallet.publicKey,
@@ -73,6 +73,8 @@ export default function IssuePage() {
         })
         .signers([certificateKeypair])
         .rpc();
+
+			localStorage.setItem(certificateKeypair.publicKey.toBase58(), tx);
 
       toast.success("Certificate issued successfully!");
 
@@ -92,7 +94,6 @@ export default function IssuePage() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-8 pt-24 pb-12">
-      {/* Header */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold">Issue Certificate</h1>
         <p className="text-muted-foreground">
@@ -100,7 +101,6 @@ export default function IssuePage() {
         </p>
       </div>
 
-      {/* Wallet Status */}
       <div className="flex items-center gap-3">
         <Badge variant={wallet.connected ? "default" : "destructive"}>
           {wallet.connected ? "Wallet Connected" : "Wallet Not Connected"}
@@ -111,9 +111,7 @@ export default function IssuePage() {
         )}
       </div>
 
-      {/* Layout */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {/* LEFT - FORM */}
         <Card className="rounded-2xl">
           <CardHeader>
             <CardTitle>Certificate Details</CardTitle>
@@ -169,7 +167,6 @@ export default function IssuePage() {
           </CardContent>
         </Card>
 
-        {/* RIGHT - LIVE PREVIEW */}
         <Card className="rounded-2xl">
           <CardHeader>
             <CardTitle>Live Preview</CardTitle>

@@ -34,7 +34,7 @@ pub struct IssueCertificate<'info> {
     #[account(
         init,
         payer = issuer,
-        space = 8 + 32 + 32 + 4 + 128
+        space = 8 + 32 + 32 + 4 + 512
     )]
     pub certificate: Account<'info, Certificate>,
 

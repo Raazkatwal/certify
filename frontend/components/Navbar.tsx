@@ -1,6 +1,6 @@
 "use client";
+
 import Link from "next/link";
-import { Button } from "./ui/button";
 import ThemeToggle from "./ThemeToggle";
 import { WalletButton } from "./WalletButton";
 
@@ -15,17 +15,32 @@ export default function Navbar() {
           Certify
         </Link>
 
+        <div className="flex items-center gap-8 text-sm font-medium">
+          <Link
+            href="/issue"
+            className="hover:text-primary transition-colors hover:underline"
+          >
+            Issue
+          </Link>
+
+          <Link
+            href="/certificates"
+            className="hover:text-primary transition-colors hover:underline"
+          >
+            My Certificates
+          </Link>
+
+          <Link
+            href="/verify"
+            className="hover:text-primary transition-colors hover:underline"
+          >
+            Verify
+          </Link>
+        </div>
+
         <div className="flex items-center gap-4">
-					<WalletButton />
           <ThemeToggle />
-          <Link href="/issue">
-            <Button variant="outline" className="cursor-pointer">
-              Issue
-            </Button>
-          </Link>
-          <Link href="/verify">
-            <Button className="cursor-pointer">Verify</Button>
-          </Link>
+          <WalletButton />
         </div>
       </div>
     </nav>

@@ -17,7 +17,7 @@ export function WalletButton() {
 
   if (!publicKey) {
     return (
-      <Button size="sm" onClick={() => setVisible(true)}>
+      <Button size="sm" onClick={() => setVisible(true)} className="cursor-pointer">
         <Wallet className="mr-2 size-4" />
         Connect Wallet
       </Button>
@@ -30,20 +30,20 @@ export function WalletButton() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="sm" variant="outline">
+        <Button size="sm" variant="outline" className="cursor-pointer">
           {shortAddress}
         </Button>
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end">
-        <DropdownMenuItem
+        <DropdownMenuItem className="cursor-pointer"
           onClick={() => navigator.clipboard.writeText(publicKey.toBase58())}
         >
           <Copy className="mr-2 size-4" />
           Copy Address
         </DropdownMenuItem>
 
-        <DropdownMenuItem onClick={disconnect}>
+        <DropdownMenuItem onClick={disconnect} className="cursor-pointer">
           <LogOut className="mr-2 size-4" />
           Disconnect
         </DropdownMenuItem>
