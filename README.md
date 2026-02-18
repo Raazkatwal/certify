@@ -1,5 +1,7 @@
 # Certify - Blockchain Verified Certificates on Solana
 
+[Live Demo](https://certify-chi.vercel.app/)
+
 Certify is a Solana-based application for issuing, viewing, and verifying blockchain-verified certificates. Users can issue certificates to any wallet, view all certificates issued to their own wallet, and verify certificates by their public key.
 
 This project consists of two parts:
